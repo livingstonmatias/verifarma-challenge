@@ -1,4 +1,8 @@
 {
-  // Required in vscode-eslint < v3.0.10 only
-  "eslint.useFlatConfig": true
+	"eslint.useFlatConfig": true,
+	"eslint.format.enable": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "always"
+	},
+	"eslint.validate": ["javascript", "javascriptreact", "vue"]
 }
