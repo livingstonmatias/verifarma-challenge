@@ -7,6 +7,7 @@ export default defineNuxtConfig({
 		'nuxt-auth-utils',
 	],
 	devtools: { enabled: true },
+	css: ['@@/assets/scss/main.scss'],
 	compatibilityDate: '2025-07-15',
 	eslint: {
 		config: {
