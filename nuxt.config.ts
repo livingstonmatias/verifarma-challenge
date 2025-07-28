@@ -5,6 +5,7 @@ export default defineNuxtConfig({
 		'@nuxt/test-utils/module',
 		'vuetify-nuxt-module',
 		'nuxt-auth-utils',
+		'nuxt-swiper',
 	],
 	devtools: { enabled: true },
 	css: ['@@/assets/scss/main.scss'],
