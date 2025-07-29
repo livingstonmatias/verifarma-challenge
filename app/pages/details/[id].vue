@@ -6,10 +6,44 @@ definePageMeta({
 const router = useRouter()
 const route = useRoute()
 const { mobile } = useDisplay()
-const { data: movie } = await useFetch(`/api/movies/${route.params.id}}`)
+const { user } = useUserSession()
+const { data: movie } = await useFetch(`/api/movies/${route.params.id}?userId=${user?.value?.id}`)
 
 const goBack = () => {
 	router.go(-1)
+}
+
+const addFavorites = async () => {
+	const { status } = await useFetch(`/api/users/${user?.value?.id}/favorites`, {
+		method: 'POST',
+		body: {
+			movieId: movie.value.id,
+			poster: movie.value.poster,
+		},
+	})
+	if (status.value == 'success') return true
+	return false
+}
+
+const deleteFavorites = async () => {
+	const { status } = await useFetch(`/api/users/${user?.value?.id}/favorites/${movie.value.id}`, { method: 'DELETE' })
+	if (status.value == 'success') return true
+	return false
+}
+
+const toogleFavorites = async () => {
+	if (movie.value && movie.value.isFavorite) {
+		const ok = await deleteFavorites()
+		if (!ok) return
+	}
+	else {
+		const ok = await addFavorites()
+		if (!ok) return
+	}
+	movie.value = {
+		...movie.value,
+		isFavorite: !movie.value.isFavorite,
+	}
 }
 </script>
 
@@ -42,7 +76,7 @@ const goBack = () => {
 								md="4"
 							>
 								<v-parallax
-									:src="movie.poster"
+									:src="movie?.poster"
 									max-height="450"
 								/>
 							</v-col>
@@ -116,7 +150,8 @@ const goBack = () => {
 									<v-btn
 										icon="mdi-heart"
 										size="x-large"
-										color="blue-darken-4"
+										:color="movie.isFavorite? 'pink':''"
+										@click="toogleFavorites"
 									/>
 								</v-card-actions>
 							</v-col>

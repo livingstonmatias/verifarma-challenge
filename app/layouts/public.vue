@@ -18,6 +18,6 @@ const actions: Array<IActionItems> = [
 <template>
 	<vo-navbar :actions="actions" />
 	<v-main class="d-flex align-center justify-center">
-		<nuxt-page />
+		<nuxt-page :transition="{ name: 'fade', mode: 'out-in' }" />
 	</v-main>
 </template>

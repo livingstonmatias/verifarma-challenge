@@ -33,7 +33,7 @@ const actions: Array<IActionItems> = [
 	<v-app>
 		<vo-navbar :actions="actions" />
 		<v-main>
-			<nuxt-page />
+			<nuxt-page :transition="{ name: 'fade', mode: 'out-in' }" />
 		</v-main>
 	</v-app>
 </template>

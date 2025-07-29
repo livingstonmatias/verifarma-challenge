@@ -36,9 +36,6 @@ useSwiper(containerRef, {
 		},
 	},
 })
-onMounted(() => {
-	console.log({ movies })
-})
 </script>
 
 <template>

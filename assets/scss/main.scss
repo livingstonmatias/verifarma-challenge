@@ -24,18 +24,32 @@
   }
 }
 
-swiper-container::part(container) {
+swiper-container {
+  &::part(container) {
     overflow: visible;
+  }
 }
 
 .movie-poster {
   transition: all 0.5s;
+
+  &:hover {
+    position: relative;
+    box-sizing: border-box;
+    border: 4px solid white;
+    transform: scale(1.1);
+    z-index: 10;
+  }
 }
 
-.movie-poster:hover {
-  position: relative;
-  box-sizing: border-box;
-	border: 4px solid white;
-  transform: scale(1.1);
-  z-index: 10;
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.3s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
 }
