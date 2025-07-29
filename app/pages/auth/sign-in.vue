@@ -28,7 +28,7 @@ const rules = {
 	],
 }
 
-const { execute, pending, error } = useFetch('/api/auth/sign-in', {
+const { execute, pending, error } = await useFetch('/api/auth/sign-in', {
 	method: 'POST',
 	body: form.value,
 	immediate: false,
@@ -42,8 +42,9 @@ const signIn = async () => {
 		await fetchUserSession()
 		router.push('/home')
 	}
-	catch {
-		// empty
+	catch (err) {
+		console.log('eror:', error.value)
+		console.log('eror2:', err)
 	}
 }
 </script>
@@ -90,7 +91,7 @@ const signIn = async () => {
 							variant="tonal"
 							class="mb-4"
 						>
-							Tuvimos problemas para procesar la solicitud, por favor intentelo mas tarde.
+							Tuvimos problemas para validar sus credenciales. Vuelva a intentar.
 						</v-alert>
 						<v-btn
 							type="submit"

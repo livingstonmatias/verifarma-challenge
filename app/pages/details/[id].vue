@@ -7,14 +7,18 @@ const router = useRouter()
 const route = useRoute()
 const { mobile } = useDisplay()
 const { user } = useUserSession()
-const { data: movie } = await useFetch(`/api/movies/${route.params.id}?userId=${user?.value?.id}`)
+
+// @ts-ignore
+const userId = user.value?.id
+
+const { data: movie } = await useFetch(`/api/movies/${route.params.id}?userId=${userId}`)
 
 const goBack = () => {
 	router.go(-1)
 }
 
 const addFavorites = async () => {
-	const { status } = await useFetch(`/api/users/${user?.value?.id}/favorites`, {
+	const { status } = await useFetch(`/api/users/${userId}/favorites`, {
 		method: 'POST',
 		body: {
 			movieId: movie.value.id,
@@ -26,7 +30,7 @@ const addFavorites = async () => {
 }
 
 const deleteFavorites = async () => {
-	const { status } = await useFetch(`/api/users/${user?.value?.id}/favorites/${movie.value.id}`, { method: 'DELETE' })
+	const { status } = await useFetch(`/api/users/${userId}/favorites/${movie.value.id}`, { method: 'DELETE' })
 	if (status.value == 'success') return true
 	return false
 }

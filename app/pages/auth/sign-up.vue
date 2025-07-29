@@ -116,7 +116,7 @@ const signUp = async () => {
 							variant="tonal"
 							class="mb-4"
 						>
-							Tuvimos problemas para procesar la solicitud, por favor intentelo mas tarde.
+							Tuvimos problemas para procesar la solicitud. Por favor intentelo mas tarde.
 						</v-alert>
 						<v-btn
 							class="mb-8"
