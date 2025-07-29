@@ -28,24 +28,21 @@ const rules = {
 	],
 }
 
-const { execute, pending, error } = await useFetch('/api/auth/sign-in', {
+const { execute, pending, error } = useFetch('/api/auth/sign-in', {
 	method: 'POST',
 	body: form.value,
 	immediate: false,
+	onResponse: async ({ response }) => {
+		if (!response.ok) return
+		await fetchUserSession()
+		router.push('/home')
+	},
 })
 const isValid = ref<boolean>(false)
 
 const signIn = async () => {
-	try {
-		if (!isValid.value) return
-		await execute()
-		await fetchUserSession()
-		router.push('/home')
-	}
-	catch (err) {
-		console.log('eror:', error.value)
-		console.log('eror2:', err)
-	}
+	if (!isValid.value) return
+	await execute()
 }
 </script>
 

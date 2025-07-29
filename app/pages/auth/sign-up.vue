@@ -43,17 +43,14 @@ const { execute, pending, error } = useFetch('/api/auth/sign-up', {
 	method: 'POST',
 	body: form.value,
 	immediate: false,
-})
-const signUp = async () => {
-	try {
-		if (!isValid.value) return
-		await execute()
+	onResponse: async () => {
 		await fetchUserSession()
 		router.push('/auth/sign-in')
-	}
-	catch {
-		// empty
-	}
+	},
+})
+const signUp = async () => {
+	if (!isValid.value) return
+	await execute()
 }
 </script>
 

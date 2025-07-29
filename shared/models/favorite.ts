@@ -7,6 +7,7 @@ export interface Favorite {
 	id: number
 	userId: string
 	movieId: number
+	poster: string
 	createdAt: string
 }
 
