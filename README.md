@@ -2,6 +2,8 @@
 
 Una aplicación web construida con **Nuxt 4** como parte de un challenge de películas. Permite a los usuarios autenticarse, explorar películas, y guardar sus favoritas. Utiliza **Vuetify** para la interfaz, **Drizzle ORM** para persistencia de datos, y varios módulos de Nuxt para enriquecer la experiencia del desarrollador y del usuario.
 
+Nota: este repositorio usa la api https://www.themoviedb.org/ para obtener informacion de peliculas.
+
 ---
 
 ##  Tecnologías utilizadas

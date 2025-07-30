@@ -7,7 +7,7 @@ const urlMedia = process.env.TMDB_MEDIA_URL
 export const MovieRepository: IMovieRepository = {
 	findById: async (id: number) => {
 		const url = urlBase + '/movie/' + id
-		const urlPoster = urlMedia + '/w300_and_h450_bestv2'
+		const urlPoster = urlMedia + '/original'
 		const movieResponse = await $fetch<ITMDBMovieDetail>(url, {
 			params: {
 				language: 'es',
@@ -27,7 +27,7 @@ export const MovieRepository: IMovieRepository = {
 	},
 	findByGenre: async (genreId: number) => {
 		const url = urlBase + '/discover/movie'
-		const urlPoster = urlMedia + '/w220_and_h330_face'
+		const urlPoster = urlMedia + '/w300_and_h450_bestv2'
 		const moviesResponse = await $fetch<ITMDBMovieApiResponse>(url, {
 			params: {
 				include_adult: false,

@@ -10,7 +10,12 @@ const {
 
 <template>
 	<v-app-bar class="d-flex align-center justify-center px-4">
-		<v-app-bar-title> Verifarma </v-app-bar-title>
+		<v-app-bar-title>
+			<nuxt-link
+				to="/"
+				style="text-decoration: none;color:white; cursor: pointer;"
+			>Verifarma</nuxt-link>
+		</v-app-bar-title>
 		<template
 			#append
 		>
