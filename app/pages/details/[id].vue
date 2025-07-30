@@ -65,14 +65,12 @@ const toogleFavorites = async () => {
 				>
 					<span class="d-flex align-center justify-end py-4">
 						<v-btn
-							prepend-icon="mdi-chevron-left"
+							icon="mdi-chevron-left"
 							@click="goBack"
-						>
-							volver
-						</v-btn>
+						/>
 					</span>
 					<v-card
-						class="pa-10 w-100"
+						class="pa-4 pa-sm-10 w-100"
 					>
 						<v-row>
 							<v-col
@@ -87,15 +85,13 @@ const toogleFavorites = async () => {
 							<v-col
 								cols="12"
 								md="8"
-								class="d-flex flex-column"
+								class="d-flex flex-column p-0"
 							>
-								<v-card-title>
-									<h2 style="text-wrap: wrap;">
-										{{ movie.title }}
-									</h2>
+								<v-card-title class="text-wrap text-h4 text-md-h2">
+									{{ movie.title }}
 								</v-card-title>
-								<v-card-item>
-									<v-row class="h-auto">
+								<v-card-item class="px-0">
+									<v-row class="h-auto ">
 										<v-col
 											class="d-flex align-center ga-6"
 										>
@@ -121,13 +117,13 @@ const toogleFavorites = async () => {
 										</v-col>
 									</v-row>
 								</v-card-item>
-								<v-card-item>
+								<v-card-item class="px-0">
 									<v-row>
 										<v-col
 											cols="12"
 											class="d-flex align-center"
 										>
-											<v-chip-group>
+											<v-chip-group column>
 												<v-chip
 													v-for="genre in movie.genres"
 													:key="genre"
@@ -138,7 +134,7 @@ const toogleFavorites = async () => {
 										</v-col>
 									</v-row>
 								</v-card-item>
-								<v-card-item class="flex-grow-1">
+								<v-card-item class="flex-grow-1 px-0">
 									<v-row>
 										<v-col
 											cols="12"
@@ -150,7 +146,8 @@ const toogleFavorites = async () => {
 										</v-col>
 									</v-row>
 								</v-card-item>
-								<v-card-actions class="justify-end">
+								<v-divider class="my-4" />
+								<v-card-actions class="justify-center justify-md-end px-0">
 									<v-btn
 										icon="mdi-heart"
 										size="x-large"

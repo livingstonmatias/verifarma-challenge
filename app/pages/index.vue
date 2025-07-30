@@ -29,19 +29,21 @@ const goSingUp = () => {
 
 <template>
 	<v-container class="d-flex align-center justify-center hero-background">
-		<v-responsive max-width="600">
+		<v-responsive>
 			<v-form
 				v-model="isValid"
+				class="d-flex align-center justify-center"
 				@submit.prevent="goSingUp"
 			>
 				<v-card
-					class="pa-12 pb-8 w-auto"
+					class="pa-4 pb-8 px-sm-10 w-auto"
 					elevation="8"
 					rounded="lg"
+					max-width="600"
 				>
 					<v-row>
 						<v-col cols="12">
-							<v-card-title class="text-h3">
+							<v-card-title class="text-h4 text-sm-h3 text-wrap">
 								Películas y series
 							</v-card-title>
 						</v-col>

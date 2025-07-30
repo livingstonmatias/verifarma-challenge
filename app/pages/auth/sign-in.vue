@@ -54,7 +54,7 @@ const signIn = async () => {
 				@submit.prevent="signIn"
 			>
 				<v-card
-					class="mx-auto pa-12 pb-8"
+					class="mx-auto pa-4 pa-sm-10 pb-8"
 					elevation="8"
 					max-width="448"
 					rounded="lg"
