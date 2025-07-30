@@ -60,7 +60,7 @@ const signIn = async () => {
 					rounded="lg"
 				>
 					<v-card-title>
-						Iniciar Sesiion
+						Iniciar Sesion
 					</v-card-title>
 					<v-card-item>
 						<v-text-field

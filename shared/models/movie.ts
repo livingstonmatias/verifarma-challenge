@@ -1,4 +1,4 @@
-export type Movie = Pick<MovieDetail, 'id' | 'poster'>
+export type Movie = Pick<MovieDetail, 'id' | 'title' | 'poster'>
 
 export interface MovieDetail {
 	id: number

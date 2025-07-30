@@ -65,8 +65,9 @@ const genreMovies = computed(() => {
 			<div
 				v-for="genre in genreMovies"
 				:key="genre.id"
+				class="mt-10"
 			>
-				<h2>
+				<h2 class="mb-4">
 					{{ genre.name }}
 				</h2>
 				<vo-movies-slides

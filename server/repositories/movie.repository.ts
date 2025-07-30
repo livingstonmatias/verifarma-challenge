@@ -40,6 +40,6 @@ export const MovieRepository: IMovieRepository = {
 			},
 		})
 
-		return moviesResponse.results.map(({ id, poster_path }) => ({ id, poster: urlPoster + poster_path }))
+		return moviesResponse.results.map(({ id, title, poster_path }) => ({ id, title, poster: urlPoster + poster_path }))
 	},
 }
